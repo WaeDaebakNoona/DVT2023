@@ -390,7 +390,7 @@ public class GUI extends javax.swing.JFrame {
 
             dateLabel.setText("Format Error");
         }
-        //why does git hub not git
+        //why does git hub not gith
 
     }//GEN-LAST:event_dateInputKeyReleased
 
