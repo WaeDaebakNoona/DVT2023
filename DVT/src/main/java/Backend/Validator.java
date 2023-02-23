@@ -41,6 +41,25 @@ public class Validator {
         
         DateTimeFormatter inputDtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate birthdate = LocalDate.parse(date, inputDtf);
-       return false;
+       return true;
    }
+    public static boolean isDigitCheck(String creditNum){
+        for (int i = 0; i < creditNum.charAt(i); i++) {
+           
+            if(!Character.isDigit(creditNum.charAt(i))){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    public static boolean lengthCheck(String creditNum){
+        
+           
+            if(creditNum.length() > 14 && creditNum.length() < 19 ){
+                return false;
+            }
+       
+        return true;
+    }
 }

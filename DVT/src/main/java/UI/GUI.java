@@ -14,12 +14,21 @@ import java.time.Month;
  */
 public class GUI extends javax.swing.JFrame {
 
+    private int point = 0;
+    
+
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        nameLabel.setText(" ");
+        ageLabel.setText(" ");
+        dateLabel.setText(" ");
+        creditLabel.setText(" ");
+        finalText.setText(" ");
     }
 
     /**
@@ -44,21 +53,25 @@ public class GUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        nameButton = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         finalText = new javax.swing.JLabel();
         yesButt = new javax.swing.JRadioButton();
         noButt = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         dateLabel = new javax.swing.JLabel();
         ageLabel = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        creditNumberInput = new javax.swing.JTextField();
+        creditLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(200, 63, 65));
 
         jPanel1.setBackground(new java.awt.Color(220, 223, 225));
+        jPanel1.setForeground(new java.awt.Color(220, 223, 225));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Register: karen's Church services");
+        jLabel1.setText("Register: Karen's Church Services");
 
         nameInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +108,9 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         dateInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dateInputKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 dateInputKeyTyped(evt);
             }
@@ -105,7 +121,9 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel7.setText("Format: dd-MM-yyyy");
 
-        finalText.setText("jLabel10");
+        nameLabel.setText("dfdsfdf");
+
+        finalText.setText("cvvfv");
 
         buttonGroup1.add(yesButt);
         yesButt.setForeground(new java.awt.Color(0, 0, 0));
@@ -118,61 +136,91 @@ public class GUI extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Name");
 
-        dateLabel.setText("jLabel10");
+        dateLabel.setText("dfdfdf");
 
-        ageLabel.setText("jLabel8");
+        ageLabel.setText("ddfgfg");
+
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setText("Credit card:");
+
+        creditNumberInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                creditNumberInputKeyTyped(evt);
+            }
+        });
+
+        creditLabel.setText("dvffd");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(yesButt)
-                .addGap(53, 53, 53)
-                .addComponent(noButt)
-                .addGap(166, 166, 166))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameButton)
-                            .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spinnerAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel7))
-                            .addComponent(dateLabel)
-                            .addComponent(ageLabel)))
+                                .addGap(76, 76, 76)
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel8)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameLabel)
+                            .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(creditLabel)
+                            .addComponent(creditNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel4))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(jLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel5)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dateLabel)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(jLabel7))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jLabel2))
+                                            .addComponent(ageLabel))
+                                        .addGap(235, 235, 235)
+                                        .addComponent(jLabel6))
+                                    .addComponent(spinnerAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(submitButton)
+                                .addGap(82, 82, 82)
+                                .addComponent(finalText))
+                            .addComponent(jLabel4))))
+                .addGap(0, 198, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
-                        .addComponent(finalText)))
-                .addGap(33, 33, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addGap(235, 235, 235)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(submitButton)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(115, 115, 115)
+                        .addComponent(yesButt)
+                        .addGap(79, 79, 79)
+                        .addComponent(noButt)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,31 +238,43 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameButton)
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spinnerAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                        .addComponent(nameLabel)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(spinnerAgeInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ageLabel)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateLabel)
-                .addGap(34, 34, 34)
+                        .addComponent(ageLabel)))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(dateLabel)
+                        .addGap(24, 24, 24)
+                        .addComponent(creditNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(creditLabel)))
+                .addGap(27, 27, 27)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yesButt)
                     .addComponent(noButt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(submitButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(finalText)
-                .addGap(12, 12, 12))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitButton)
+                    .addComponent(finalText))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -227,7 +287,7 @@ public class GUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,30 +295,26 @@ public class GUI extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
-        int point = 0;
+
         String name = nameInput.getText();
-        int age = (Integer)spinnerAgeInput.getValue();
+        int age = (Integer) spinnerAgeInput.getValue();
         String dateStr = dateInput.getText();
-        
-        try {
-            boolean checkAge = Validator.checkAge(age, dateStr);
-            
-            if(checkAge){
-               finalText.setText("valid"); //just a check not final message
-               point++;
-            }
-            else{
-                finalText.setText("invalid");
-            }
-        } catch (java.time.format.DateTimeParseException e) {
-            
-            System.out.println("Format Error");
+        String creditNum = creditNumberInput.getText();
+
+
+        if (point > 5) {
+            finalText.setText("Data Validates: You are now Karen's salve");
+            System.out.println(point);
+        } else {
+            finalText.setText("Data Does Not Validates: You are Free");
+            System.out.println(point);
         }
-        
-        
-          
-        
-        
+
+        if (yesButt.equals(true)) {
+            point++;
+        }
+
+
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void nameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameInputActionPerformed
@@ -274,35 +330,69 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String name = nameInput.getText();
         boolean checkName = Validator.checkNamePresence(name);
-        if(checkName){
-            nameButton.setText("Valid");
-        }
-        else{
-            nameButton.setText("Invalid");
+        if (checkName) {
+            nameLabel.setText("Valid");
+            point++;
+        } else {
+            nameLabel.setText("Invalid");
         }
     }//GEN-LAST:event_nameInputKeyTyped
 
     private void dateInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateInputKeyTyped
         // TODO add your handling code here:
-        int age = (Integer)spinnerAgeInput.getValue();
-        String dateStr = dateInput.getText();
-         try {
-            boolean checkAge = Validator.checkAge(age, dateStr);
+
+
+    }//GEN-LAST:event_dateInputKeyTyped
+
+    private void creditNumberInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_creditNumberInputKeyTyped
+        // TODO add your handling code here:
+        String creditNum = creditNumberInput.getText();
+        boolean checkCard = Validator.lengthCheck(creditNum);
+        if (checkCard == false) {
+            creditLabel.setText("Valid");
             
-            if(checkAge){
-               ageLabel.setText("valid"); //just a check not final message
-               
-            }
-            else{
-                ageLabel.setText("invalid");
-                
+        } else {
+            creditLabel.setText("Must be more than 16 & less than 19 characters");
+            point++;
+        }
+    }//GEN-LAST:event_creditNumberInputKeyTyped
+
+    private void dateInputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dateInputKeyReleased
+        // TODO add your handling code here:
+        int age = (Integer) spinnerAgeInput.getValue();
+        String dateStr = dateInput.getText();
+        try {
+            boolean checkForm = Validator.checkDateFormat(dateStr);
+
+            if (checkForm) {
+                dateLabel.setText("valid"); //just a check not final message
+                point++;
+            } else {
+                dateLabel.setText("invalid");
+
             }
         } catch (java.time.format.DateTimeParseException e) {
-            
+
             dateLabel.setText("Format Error");
         }
         
-    }//GEN-LAST:event_dateInputKeyTyped
+        try {
+            boolean checkAge = Validator.checkAge(age, dateStr);
+
+            if (checkAge) {
+                ageLabel.setText("valid"); //just a check not final message
+                point++;
+            } else {
+                ageLabel.setText("invalid");
+
+            }
+        } catch (java.time.format.DateTimeParseException e) {
+
+            dateLabel.setText("Format Error");
+        }
+
+
+    }//GEN-LAST:event_dateInputKeyReleased
 
     /**
      * @param args the command line arguments
@@ -342,6 +432,8 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ageLabel;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel creditLabel;
+    private javax.swing.JTextField creditNumberInput;
     private javax.swing.JTextField dateInput;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel finalText;
@@ -352,10 +444,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel nameButton;
     private javax.swing.JTextField nameInput;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JRadioButton noButt;
     private javax.swing.JSpinner spinnerAgeInput;
     private javax.swing.JButton submitButton;
