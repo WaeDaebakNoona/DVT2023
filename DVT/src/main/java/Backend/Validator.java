@@ -43,10 +43,10 @@ public class Validator {
         LocalDate birthdate = LocalDate.parse(date, inputDtf);
        return true;
    }
-    public static boolean isDigitCheck(String creditNum){
-        for (int i = 0; i < creditNum.charAt(i); i++) {
+    public static boolean isDigitCheck(String name){
+        for (int i = 0; i < name.length(); i++) {
            
-            if(!Character.isDigit(creditNum.charAt(i))){
+            if(!Character.isDigit(name.charAt(i))){
                 return true;
             }
         }
